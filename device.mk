@@ -1,8 +1,5 @@
 LOCAL_PATH := device/xiaomi/mojito
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/embedded.mk)
-
 # define hardware platform
 PRODUCT_PLATFORM := sm6150
 TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
@@ -78,6 +75,3 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31

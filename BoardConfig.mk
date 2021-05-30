@@ -144,11 +144,6 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/commonsys-intf/display
 
-# Qcom standar decryption
-PRODUCT_PACKAGES += \
-    qcom_decrypt \
-    qcom_decrypt_fbe
-
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Crypto

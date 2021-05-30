@@ -89,12 +89,13 @@ BOARD_KERNEL_CMDLINE += swiotlb=1
 BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
 BOARD_KERNEL_CMDLINE += video=vfb:640x400,bpp=32,memsize=3072000
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
 #KERNEL_LD := LD=ld.lld
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
-TARGET_COMPILE_WITH_MSM_KERNEL := true
-TARGET_KERNEL_CLANG_COMPILE := true
+#TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+#TARGET_COMPILE_WITH_MSM_KERNEL := true
+#TARGET_KERNEL_CLANG_COMPILE := true
 
 # Avb
 BOARD_AVB_ENABLE := true

@@ -231,3 +231,5 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
     FILESYSTEM_TYPE_vendor=ext4 \
     POSTINSTALL_OPTIONAL_vendor=true
+
+TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true

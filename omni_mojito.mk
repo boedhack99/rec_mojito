@@ -25,11 +25,11 @@ $(call inherit-product, device/xiaomi/mojito/device.mk)
 PRODUCT_RELEASE_NAME := mojito
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/pb/config/common.mk)
 
 # Kernel
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/Image.gz-dtb:Image.gz-dtb \
+    $(LOCAL_PATH)/prebuilt/kernel:kernel \
     $(LOCAL_PATH)/prebuilt/dtb.img:dtb.img
 
 # Device identifier. This must come after all inclusions

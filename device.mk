@@ -4,6 +4,20 @@ LOCAL_PATH := device/xiaomi/mojito
 PRODUCT_PLATFORM := sm6150
 TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 
+# A/B
+AB_OTA_UPDATER := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+
+AB_OTA_PARTITIONS := \
+    boot \
+    dtbo \
+    product \
+    system \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vendor_boot
+
 # A/B support
 PRODUCT_PACKAGES += \
     bootctrl.$(PRODUCT_PLATFORM) \

@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+DEVICE_PATH := device/xiaomi/mojito
+
 #  Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -96,8 +98,9 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CONFIG := mojito_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/mojito
+#TARGET_KERNEL_CONFIG := mojito_defconfig
+#TARGET_KERNEL_SOURCE := kernel/xiaomi/mojito
+TARGET_NO_KERNEL := false
 
 # Avb
 BOARD_AVB_ENABLE := true

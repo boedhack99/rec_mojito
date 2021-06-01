@@ -25,7 +25,7 @@ $(call inherit-product, device/xiaomi/mojito/device.mk)
 PRODUCT_RELEASE_NAME := mojito
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/pb/config/common.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Kernel
 PRODUCT_COPY_FILES += \

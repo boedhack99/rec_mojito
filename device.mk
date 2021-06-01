@@ -6,7 +6,6 @@ TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 
 # A/B
 AB_OTA_UPDATER := true
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 AB_OTA_PARTITIONS := \
     boot \

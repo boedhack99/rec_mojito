@@ -11,15 +11,15 @@
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Setup dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/#phone-xhdpi-6144-dalvik-heap.mk)
 
 # Get non-open-source specific aspects
 #$(call inherit-product, vendor/xiaomi/mojito/mojito-vendor.mk)
 
-LOCAL_PATH := device/xiaomi/mojito
+#LOCAL_PATH := device/xiaomi/mojito
 
 # API
 PRODUCT_TARGET_VNDK_VERSION := 30
@@ -127,9 +127,9 @@ PRODUCT_PACKAGES += \
 
 # Input
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-goodix.kl
+#    $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl \
+#    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-fpc.kl \
+#    $(LOCAL_PATH)/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-goodix.kl
 
 # Kernel
 PRODUCT_COPY_FILES += \
@@ -149,24 +149,7 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
-
-PRODUCT_PACKAGES += \
-    AospFrameworkResOverlay \
-    AospWifiResOverlay \
-    DevicesAndroidOverlay \
-    DevicesOverlay \
-    ElderlyNavigationBarOverlay \
-    FrameworksResTarget \
-    GestureLineOverlay \
-    MccMncOverlay \
-    MiuiBiometricResOverlay \
-    MiuiBluetoothOverlay \
-    MiuiFrameworkResOverlay \
-    MiuiSettingsResOverlay \
-    MiuiSystemUIResOverlay \
-    NetworkStackOverlay \
-    WifiResTarget
+#    $(LOCAL_PATH)/overlay
 
 PRODUCT_PACKAGES += \
     NotchBarKiller
@@ -207,8 +190,8 @@ PRODUCT_PACKAGES += \
 #PRODUCT_BOOT_JARS += \
 #    telephony-ext
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/$privapp-permissions-qti.xml
 
 # Thermal
 PRODUCT_PACKAGES += \
@@ -224,13 +207,13 @@ PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
 # Vendor overlay
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/vendor-overlay/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION))
+#PRODUCT_COPY_FILES += \
+#    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/vendor-overlay/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION))
 
 # WiFi
-PRODUCT_PACKAGES += \
-    TetheringConfigOverlay \
-    WifiOverlay
+#PRODUCT_PACKAGES += \
+#    TetheringConfigOverlay \
+#    WifiOverlay
 
 # WiFi Display
 PRODUCT_PACKAGES += \
@@ -239,8 +222,8 @@ PRODUCT_PACKAGES += \
 #PRODUCT_BOOT_JARS += \
 #    WfdCommon
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/permissions/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
 
 PRODUCT_PACKAGES += \
     qcom_decrypt \

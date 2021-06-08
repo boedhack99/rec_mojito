@@ -19,7 +19,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit from mojito device
-#$(call inherit-product, device/xiaomi/mojito/device.mk)
+$(call inherit-product, device/xiaomi/mojito/device.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := mojito

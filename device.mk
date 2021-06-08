@@ -1,7 +1,7 @@
 LOCAL_PATH := device/xiaomi/mojito
 
 # API
-PRODUCT_TARGET_VNDK_VERSION := current
+PRODUCT_TARGET_VNDK_VERSION := 30
 PRODUCT_SHIPPING_API_LEVEL := 30
 
 # ANT+
@@ -151,7 +151,6 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/qcom-caf/bootctrl
 
 # Power
 PRODUCT_PACKAGES += \

@@ -153,9 +153,6 @@ TARGET_USES_MKE2FS := true
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/commonsys-intf/display
-
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Crypto

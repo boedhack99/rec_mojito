@@ -155,8 +155,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_MKE2FS := true
 
 # Display
-#TARGET_SCREEN_HEIGHT := 2400
-#TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
 
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -173,7 +173,7 @@ BOARD_USES_METADATA_PARTITION := true
 TARGET_RECOVERY_DEVICE_MODULES += libion libandroidicu vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti
 
 # TWRP specific build flags
-TW_THEME := portrait_hdpi
+#TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true

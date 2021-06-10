@@ -15,6 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_mojito.mk
+    $(LOCAL_DIR)/twrp_mojito.mk
 
-COMMON_LUNCH_CHOICES := omni_mojito-eng
+COMMON_LUNCH_CHOICES := twrp_mojito-eng

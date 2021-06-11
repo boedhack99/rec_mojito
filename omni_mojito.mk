@@ -25,7 +25,7 @@ $(call inherit-product, device/xiaomi/mojito/device.mk)
 PRODUCT_RELEASE_NAME := mojito
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/pb/config/common.mk)
 
 # Kernel
 PRODUCT_COPY_FILES += \
@@ -34,7 +34,7 @@ PRODUCT_COPY_FILES += \
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mojito
-PRODUCT_NAME := twrp_mojito
+PRODUCT_NAME := omni_mojito
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 10
 PRODUCT_MANUFACTURER := Xiaomi

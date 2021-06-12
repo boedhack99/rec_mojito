@@ -92,6 +92,7 @@ BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
 BOARD_KERNEL_CMDLINE += video=vfb:640x400,bpp=32,memsize=3072000
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_CMDLINE += kpti=off
 
 #KERNEL_LD := LD=ld.lld
@@ -100,6 +101,8 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 #TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
 #TARGET_KERNEL_CONFIG := mojito_defconfig
 #TARGET_KERNEL_SOURCE := kernel/xiaomi/mojito
 TARGET_NO_KERNEL := false
@@ -157,6 +160,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 #TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.default
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_MKE2FS := true
+TARGET_NO_RECOVERY := true
 
 # Display
 #TARGET_SCREEN_HEIGHT := 2400

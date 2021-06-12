@@ -97,15 +97,15 @@ BOARD_KERNEL_CMDLINE += kpti=off
 
 #KERNEL_LD := LD=ld.lld
 #BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 #TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-#TARGET_KERNEL_CONFIG := mojito_defconfig
-#TARGET_KERNEL_SOURCE := kernel/xiaomi/mojito
-TARGET_NO_KERNEL := false
+TARGET_KERNEL_CONFIG := mojito_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/mojito
+#TARGET_NO_KERNEL := false
 
 # Avb
 BOARD_AVB_ENABLE := true
@@ -219,6 +219,7 @@ PB_DISABLE_DEFAULT_TREBLE_COMP := true
 PB_TORCH_PATH := "/sys/class/leds/led:torch_0"
 
 #SHRP_Variables
+SHRP_AB := true
 SHRP_DEVICE_CODE := mojito
 SHRP_PATH := device/xiaomi/mojito
 SHRP_MAINTAINER := dblenk9

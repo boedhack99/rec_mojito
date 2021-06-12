@@ -38,8 +38,8 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/kernel:kernel
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/prebuilt/kernel:kernel
 
 # Power
 PRODUCT_PACKAGES += \

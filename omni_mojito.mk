@@ -28,9 +28,9 @@ PRODUCT_RELEASE_NAME := mojito
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Kernel
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/kernel:kernel \
-    $(LOCAL_PATH)/prebuilt/dtb.img:dtb.img
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/prebuilt/kernel:kernel \
+#    $(LOCAL_PATH)/prebuilt/dtb.img:dtb.img
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mojito

@@ -70,6 +70,7 @@ BOARD_KERNEL_CMDLINE += kpti=off
 #KERNEL_LD := LD=ld.lld
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 #TARGET_KERNEL_CONFIG := mojito_defconfig
 #TARGET_KERNEL_SOURCE := kernel/xiaomi/mojito

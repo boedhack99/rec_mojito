@@ -11,6 +11,20 @@ service variant-script /system/bin/variant-script.sh
     oneshot
     seclabel u:r:recovery:s0
 
+service mount-dynamic-rw /system/bin/dynamic-rw.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+on init
+    write /sys/class/backlight/panel0-backlight/brightness 200
+    start boot-hal-1-1
+
 on boot
-    start variant-script
     setprop sys.usb.config adb
+    chmod 0777 /system/bin/variant-script.sh
+    #chmod 0777 /system/bin/dynamic-rw.sh
+    start variant-script
+    #start dynamic-rw

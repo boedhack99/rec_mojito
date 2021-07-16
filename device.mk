@@ -63,7 +63,6 @@ PRODUCT_PACKAGES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
-    init.recovery.qcom.sh \
     init.recovery.qcom.rc
 
 # Kernel

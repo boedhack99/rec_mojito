@@ -66,7 +66,7 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc
 
 # Kernel
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/dtb.img:dtb.img
 
 # Ramdisk

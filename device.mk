@@ -67,12 +67,12 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc
 
 # Kernel
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/dtb.img:dtb.img
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
+    $(LOCAL_PATH)/recovery/root/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

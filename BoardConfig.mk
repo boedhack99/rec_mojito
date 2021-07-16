@@ -19,6 +19,7 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 TARGET_OTA_ASSERT_DEVICE := mojito,sunny
 
 # A/B
+ENABLE_VIRTUAL_AB := true
 AB_OTA_UPDATER := true
 
 AB_OTA_PARTITIONS := \
@@ -44,11 +45,12 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_mojito
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_PREBUILT_DTBOIMG := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
@@ -70,7 +72,8 @@ BOARD_KERNEL_CMDLINE += kpti=off
 #KERNEL_LD := LD=ld.lld
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 #TARGET_KERNEL_CONFIG := mojito_defconfig
 #TARGET_KERNEL_SOURCE := kernel/xiaomi/mojito
 TARGET_KERNEL_ARCH := arm64
@@ -85,10 +88,6 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 112419745792
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
-
-TARGET_COPY_OUT_VENDOR := vendor
-TARGET_COPY_OUT_PRODUCT := product
-TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 
 # Partitions (Dynamic)
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
@@ -111,6 +110,9 @@ TARGET_BOARD_PLATFORM := sm6150
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
+# Fstab
+#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.default
 
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
@@ -146,6 +148,19 @@ TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
 TW_NO_SCREEN_BLANK := true
 TW_EXCLUDE_APEX := true
+TW_RECOVERY_ADDITIONAL_RELINK_BINARY_FILES += \
+    $(TARGET_OUT_EXECUTABLES)/ashmemd \
+    $(TARGET_OUT_EXECUTABLES)/strace
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpcrecpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hidl.base@1.0 \
     ashmemd \
@@ -161,6 +176,18 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     vendor.display.config@1.0 \
     vendor.display.config@2.0 
 
+# Recovery
+BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USES_MKE2FS := true
+TARGET_NO_KERNEL := false
+TARGET_NO_RECOVERY := false
+
+USE_RECOVERY_INSTALLER := true
+RECOVERY_INSTALLER_PATH := bootable/recovery/installer
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
@@ -169,26 +196,3 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(OUT_DIR)/target/product/mojito/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
-
-ENABLE_VIRTUAL_AB := true
-
-# Recovery
-BOARD_USES_RECOVERY_AS_BOOT := true
-TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.default
-TARGET_USERIMAGES_USE_F2FS := true
-TARGET_USES_MKE2FS := true
-TARGET_NO_RECOVERY := true
-TW_OVERRIDE_SYSTEM_PROPS := \
-    "ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
-TW_RECOVERY_ADDITIONAL_RELINK_BINARY_FILES += \
-    $(TARGET_OUT_EXECUTABLES)/ashmemd \
-    $(TARGET_OUT_EXECUTABLES)/strace
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpcrecpp.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so

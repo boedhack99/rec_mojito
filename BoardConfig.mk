@@ -198,3 +198,21 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(OUT_DIR)/target/product/mojito/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
+
+# SHRP flags
+SHRP_PATH := device/nokia/NB1
+SHRP_MAINTAINER := emufan4568
+SHRP_DEVICE_CODE := NB1
+SHRP_EDL_MODE := 1
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 1
+SHRP_FLASH_MAX_BRIGHTNESS := 200
+SHRP_AB := true
+SHRP_DEVICE_TYPE := A/B
+SHRP_REC := DUMMY
+SHRP_REC_TYPE := normal
+SHRP_OFFICIAL := false
+SHRP_EXPRESS := true
+SHRP_DARK := true

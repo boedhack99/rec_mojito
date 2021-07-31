@@ -1,10 +1,10 @@
 # Inherit from mojito device
 $(call inherit-product, device/xiaomi/mojito/device.mk)
 
-$(call inherit-product, vendor/twrp/config/common.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := aosp_mojito
+PRODUCT_NAME := omni_mojito
 PRODUCT_DEVICE := mojito
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := Redmi Note 10

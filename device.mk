@@ -52,11 +52,6 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
 
-# Framework detect
-PRODUCT_PACKAGES += \
-    libqti_vndfwk_detect \
-    libvndfwk_detect_jni.qti
-
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0

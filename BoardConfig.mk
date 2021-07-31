@@ -200,11 +200,11 @@ PRODUCT_COPY_FILES += \
     $(OUT_DIR)/target/product/mojito/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
 
 # SHRP flags
-SHRP_PATH := device/nokia/NB1
-SHRP_MAINTAINER := emufan4568
-SHRP_DEVICE_CODE := NB1
+SHRP_PATH := device/xiaomi/mojito
+SHRP_MAINTAINER := dblenk9
+SHRP_DEVICE_CODE := mojito
 SHRP_EDL_MODE := 1
-SHRP_EXTERNAL := /external_sd
+SHRP_EXTERNAL := /sdcard1
 SHRP_INTERNAL := /sdcard
 SHRP_OTG := /usb_otg
 SHRP_FLASH := 1

@@ -1,6 +1,10 @@
 # Inherit from mojito device
 $(call inherit-product, device/xiaomi/mojito/device.mk)
 
+# Specify Phone
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit from common Omni Stuff
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Device identifier. This must come after all inclusions.
